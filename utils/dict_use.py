@@ -1,4 +1,6 @@
 import pickle as pkl
+import sys
+sys.path.insert(0, 'chatbot-text-gen/data')
 class dict_use:
     def __init__(self, dict_path):
         self.Dict1, self.Dict2=pkl.load(open(dict_path,'rb'), encoding="utf-8")
