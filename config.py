@@ -1,7 +1,7 @@
 class config(object):
     def __init__(self):
-        self.data_path='questions.txt'
-        self.dict_path='dict.pkl'
+        self.data_path='/content/chatbot-text-gen/data/questions.txt'
+        self.dict_path='/content/chatbot-text-gen/data/dict.pkl'
         self.use_data_path='input.txt'
         
         self.dict_size=50000
