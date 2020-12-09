@@ -8,12 +8,12 @@ class config(object):
         self.dict_size=50000
         self.vocab_size=self.dict_size+3
         
-        self.forward_save_path='./model/forward'
-        self.backward_save_path='./model/backward'
-        self.forward_log_path='./log/forward_log.txt'
-        self.backward_log_path='./log/backward_log.txt'
+        self.forward_save_path='/content/chatbot-text-gen/model/forward'
+        self.backward_save_path='/content/chatbot-text-gen/model/backward'
+        self.forward_log_path='/content/chatbot-text-gen/log/forward_log.txt'
+        self.backward_log_path='/content/chatbot-text-gen/log/backward_log.txt'
         self.shuffle=False
-        self.use_log_path='./log/use_log.txt'
+        self.use_log_path='/content/chatbot-text-gen/log/use_log.txt'
         
         self.batch_size=32
         self.num_steps=50
@@ -24,4 +24,4 @@ class config(object):
         self.mode='forward'                               
         
         self.search_size=100
-        self.use_output_path='./output/output.txt'
+        self.use_output_path='/content/chatbot-text-gen/output/output.txt'
