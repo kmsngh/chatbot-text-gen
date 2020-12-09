@@ -1,13 +1,13 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 import numpy as np
 import pickle as pkl
 from config import config
 config=config()
+
 from utils import *
+
 import sys
-sys.path.insert(0,config.dict_path)
+sys.path.insert(0, config.dict_path)
+
 from dict_use import *
 import tensorflow as tf
 tt_proportion=0.9
