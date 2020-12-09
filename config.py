@@ -3,6 +3,7 @@ class config(object):
         self.data_path='/content/chatbot-text-gen/data/questions.txt'
         self.dict_path='/content/chatbot-text-gen/data/dict.pkl'
         self.use_data_path='input.txt'
+        self.max_epoch=10
         
         self.dict_size=50000
         self.vocab_size=self.dict_size+3
