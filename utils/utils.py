@@ -4,10 +4,6 @@ from copy import copy
 
 config = config()
 
-
-import sys
-sys.path.insert(0, config.dict_path)
-
 from dict_use import dict_use
 dict_use = dict_use(config.dict_path)
 sen2id = dict_use.sen2id

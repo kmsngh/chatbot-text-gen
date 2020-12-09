@@ -5,9 +5,6 @@ config=config()
 
 from utils import *
 
-import sys
-sys.path.insert(0, config.dict_path)
-
 from dict_use import *
 import tensorflow as tf
 tt_proportion=0.9
