@@ -6,7 +6,6 @@ config = config()
 
 
 import sys
-sys.path.insert(0, config.skipthoughts_path) # '../skip_thoughts'
 sys.path.insert(0, config.dict_path)
 
 from dict_use import dict_use
