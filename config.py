@@ -7,13 +7,13 @@ class config(object):
         self.dict_size=50000
         self.vocab_size=self.dict_size+3
         
-        self.forward_save_path='/content/chatbot-text-gen/model/forward'
-        self.backward_save_path='/content/chatbot-text-gen/model/backward'
+        self.forward_save_path='gs://winningarc-bucket-1/forward'
+        self.backward_save_path='gs://winningarc-bucket-1/backward'
         
-        self.forward_log_path='/content/chatbot-text-gen/log/forward_log.txt'
-        self.backward_log_path='/content/chatbot-text-gen/log/backward_log.txt'
+        self.forward_log_path='gs://winningarc-bucket-1/log/forward_log.txt'
+        self.backward_log_path='gs://winningarc-bucket-1/log/backward_log.txt'
 
-        self.use_log_path='/content/chatbot-text-gen/log/use_log.txt'
+        self.use_log_path='gs://winningarc-bucket-1/log/use_log.txt'
 
         self.shuffle=False
         
