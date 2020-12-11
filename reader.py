@@ -7,7 +7,7 @@ from config import config
 config=config()
 from utils import *
 import sys
-sys.path.insert(0,config.dict_path)
+sys.path.insert(0, config.dict_path)
 from dict_use import *
 import tensorflow as tf
 tt_proportion=0.9
@@ -30,7 +30,7 @@ def array_data(data, max_length, dict_size, is_backward=False, shuffle=False):
             data[i].append(dict_size+1) # EOS
         else:  ## where to add masking values
             data[i].append(dict_size+1) # EOS
-            for j in range(max_length_m1-len(data[i])-1):
+            for j in range(max_length-len(data[i])):
                 data[i].append(dict_size+3) # Mask
     target=np.array(data).astype(np.int32)
     input=np.concatenate([np.ones([len(data), 1])*(dict_size+2), target[:, :-1]], axis=1).astype(np.int32)
