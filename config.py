@@ -4,7 +4,7 @@ class config(object):
         self.dict_path='/content/chatbot-text-gen/data/dict.pkl'
         self.use_data_path='input.txt'
         
-        self.dict_size=50000
+        self.dict_size=30000
         self.vocab_size=self.dict_size+3
         
         self.forward_save_path='gs://winningarc-bucket-1/forward'

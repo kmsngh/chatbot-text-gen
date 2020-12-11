@@ -1,7 +1,7 @@
 import pickle as pkl
 class dict_use:
     def __init__(self, dict_path):
-        self.Dict1, self.Dict2=pkl.load(open(dict_path,'rb'), encoding="utf-8")
+        self.Dict1, self.Dict2=pkl.load(open(dict_path,'rb'))
         self.vocab_size=len(self.Dict1)+3
         self.UNK=self.vocab_size-3
         self.BOS=self.vocab_size-1
