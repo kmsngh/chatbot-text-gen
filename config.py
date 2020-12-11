@@ -17,7 +17,7 @@ class config(object):
 
         self.shuffle=False
         
-        self.max_epoch=10
+        self.max_epoch=1
         self.batch_size=32
         self.num_steps=50
         self.hidden_size=300
