@@ -5,7 +5,7 @@ class config(object):
         self.use_data_path='input.txt'
         
         self.dict_size=30000
-        self.vocab_size=self.dict_size+3
+        self.vocab_size=self.dict_size+4
         
         self.forward_save_path='gs://winningarc-bucket-1/forward'
         self.backward_save_path='gs://winningarc-bucket-1/backward'
