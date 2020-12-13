@@ -95,3 +95,15 @@ def read_data_use(file_name, max_length, dict_size=config.dict_size, is_backward
                 sta_vec_list.append(sta_vec)
                 data.append(key)
     dataset, sequence_length = array_data(data, max_length, dict_size, is_backward=is_backward)
+    return dataset, sequence_length, sta_vec_list
+    
+# local function only used in reader.py to choose keys
+def choose_key(line, num):
+    ind_list = list(range(len(line)))
+    np.random.shuffle(ind_list)
+    ind_list = ind_list[:num]
+    ind_list.sort()
+    tem = []
+    for ind in ind_list:
+        tem.append(line[ind])
+    return tem
