@@ -46,5 +46,5 @@ class config(object):
         self.sim_hardness=5
         self.rare_since=30000
         self.just_acc_rate=0.0
-        self.key_num=4
-        self.min_length=7                        
+        self.key_num=4    
+        self.max_length=10                  
