@@ -13,7 +13,6 @@ dict_use = dict_use(config.dict_path)
 sen2id = dict_use.sen2id
 id2sen = dict_use.id2sen
 
-
 def normalize(x, e = 0.05):
     temp = copy(x)
     if max(temp) == 0:
@@ -37,13 +36,12 @@ def reverse_seq(input, sequence_length, target):
         # Set target_new
         for j in range(length):
             target_new[i][j] = target[i][length-1-j]
-        target_new[i][length+1] = config.dict_size + 2 # EOS
+        target_new[i][length] = config.dict_size + 1 # EOS
         
         # Set input_new
         input_new[i][0] = config.dict_size + 2  # BOS
         for j in range(length):
             input_new[i][j+1] = input[i][length-j]
-        input_new[i][length+1] = config.dict_size + 2  # EOS
         
     return input_new.astype(np.int32), sequence_length.astype(np.int32), target_new.astype(np.int32)
 
@@ -51,6 +49,12 @@ def reverse_seq(input, sequence_length, target):
 # Cut at 'ind'
 # Generate backwards for replacement and insertion only.
 def cut_from_point(input, sequence_length, ind, mode = 0): # mode could be 0 or action no.
+    if isinstance(input, list):
+        input = np.array(input)
+
+    if isinstance(sequence_length, list):
+        sequence_length = np.array(sequence_length)
+
     batch_size = input.shape[0]
     num_steps = input.shape[1]
 
@@ -70,19 +74,21 @@ def cut_from_point(input, sequence_length, ind, mode = 0): # mode could be 0 or 
         # Set input_forward & sequence_length_forward
         for j in range(ind):
             input_forward[i][j+1] = input[i][j+1]
-        input_forward[i][ind+1] = config.dict_size + 1  # EOS
+        #input_forward[i][ind+1] = config.dict_size + 1  # EOS
         sequence_length_forward[i] = ind + 1
 
         # Set input_backward & sequence_length_backward
         if mode == 0:
+            # Removing word at ind + 1 during cut
             for j in range(length-ind-1):
                 input_backward[i][j+1] = input[i][length-j]
-            input_backward[i][length-ind] = config.dict_size + 1  # EOS
+            #input_backward[i][length-ind] = config.dict_size + 1  # EOS
             sequence_length_backward[i] = length - ind
         elif mode == 1:
+            # Do not remove word at ind + 1 during cut
             for j in range(length-ind):
                 input_backward[i][j+1] = input[i][length-j]
-            input_backward[i][length-ind+1] = config.dict_size + 1  # EOS
+            #input_backward[i][length-ind+1] = config.dict_size + 1  # EOS
             sequence_length_backward[i] = length - ind + 1
     
     return input_forward.astype(np.int32), input_backward.astype(np.int32), sequence_length_forward.astype(np.int32), sequence_length_backward.astype(np.int32)
