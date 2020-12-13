@@ -33,7 +33,7 @@ class config(object):
         self.sample_sentence_number=119
         
         self.search_size=100
-        self.use_output_path='gs://winningarc-bucket-1/output/output.txt'
+        self.use_output_path='/content/output.txt'
       
         #self.sample_prior=[1,1,1,1]
         self.action_prob=[0.3,0.3,0.3,0.1]                                         #the prior of 4 actions
